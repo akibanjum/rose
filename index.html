@@ -1,183 +1,203 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1d0710">
+<meta name="theme-color" content="#14050c">
 <title>For Someone Special 🌹</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  color-scheme: dark;
-  --wine: #1d0710;
-  --oxblood: #3d0d1f;
-  --rose: #e5395f;
-  --blush: #f6e3df;
-  --ink: #3b1522;
-  --soft: #c9a3b0;
-  box-sizing: border-box;
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+:root{
+  color-scheme:dark;
+  --night:#14050c;
+  --oxblood:#4a0f24;
+  --rose:#ff4d79;
+  --blush:#ffe6df;
+  --soft:#d8aab7;
+  --paper:#fff3ea;
+  --ink:#3b1522;
+  --deep:#a3173f;
+  --display:"Bricolage Grotesque","Hind Siliguri",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif","Noto Serif Bengali",Georgia,serif;
+  --hand:Caveat,"Hind Siliguri","Segoe Script",cursive;
+  box-sizing:border-box;
 }
-html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-* { box-sizing: border-box; margin: 0; padding: 0; }
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-body {
-  min-height: 100vh;
-  background: radial-gradient(ellipse at 50% 30%, var(--oxblood) 0%, transparent 60%), var(--wine);
-  color: var(--blush);
-  font-family: Fraunces, Georgia, serif;
-  overflow-x: hidden;
-  display: grid;
-  place-items: center;
+body{
+  min-height:100vh;min-height:100dvh;
+  background:
+    radial-gradient(60% 42% at 50% 20%,#5c1331 0%,transparent 72%),
+    radial-gradient(45% 30% at 100% 100%,#3a0a1e 0%,transparent 70%),
+    var(--night);
+  color:var(--blush);font-family:var(--display);
+  overflow-x:hidden;
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);
 }
-
-main {
-  width: min(100%, 440px);
-  margin: 0 auto;
-  padding: 44px 22px 64px;
-  text-align: center;
+/* fine paper grain */
+body::after{
+  content:"";position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.08;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+main{width:min(100%,560px);margin:0 auto;padding:48px 24px 72px}
+:focus-visible{outline:2px solid var(--blush);outline-offset:3px}
 
-/* Generator View Styles */
-.emoji { font-size: 54px; }
-h1 {
-  font-weight: 400;
-  font-size: clamp(32px, 9vw, 54px);
-  line-height: 1.06;
-  letter-spacing: -.5px;
+/* ---------- Generator ---------- */
+.seal{
+  display:grid;place-items:center;width:76px;aspect-ratio:1;border-radius:50%;
+  font-size:2.3rem;line-height:1;margin-bottom:30px;transform:rotate(-8deg);
+  background:radial-gradient(circle at 35% 30%,#ff7b9b,#c4284d 70%);
+  box-shadow:inset 0 0 0 2px #ffffff30,0 14px 26px -10px #000a;
 }
-p.sub { color: var(--soft); font-style: italic; font-size: 17px; margin-bottom: 26px; }
-label { display: block; text-align: left; color: var(--soft); font-size: 14px; margin: 14px 0 6px; }
-input { width: 100%; background: #ffffff10; color: var(--blush); border: 1px solid #c9a3b055; border-radius: 12px; padding: 14px 16px; font: inherit; font-size: 18px; }
-input:focus-visible, button:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
-.btn { width: 100%; margin-top: 18px; background: var(--rose); color: #fff; border: 0; border-radius: 40px; padding: 15px; font: inherit; font-size: 18px; cursor: pointer; }
-.btn:hover { filter: brightness(1.1); }
-.out { display: none; margin-top: 26px; padding: 18px; background: #ffffff0d; border: 1px solid #c9a3b044; border-radius: 14px; text-align: left; }
-.out.show { display: block; }
-.out code { display: block; word-break: break-all; font: 14px ui-monospace,Menlo,monospace; color: var(--blush); margin-bottom: 14px; }
-.row { display: flex; gap: 8px; flex-wrap: wrap; }
-.row a, .row button { flex: 1 1 auto; text-align: center; text-decoration: none; background: none; color: var(--blush); border: 1px solid #c9a3b077; border-radius: 40px; padding: 10px 14px; font: italic 15px Fraunces,Georgia,serif; cursor: pointer; }
-.row a:hover, .row button:hover { background: #ffffff14; }
+.gen-title{font-weight:800;font-size:clamp(2.7rem,11.5vw,4.4rem);line-height:.98;letter-spacing:-.04em}
+.gen-title em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.015em}
+p.sub{margin-top:16px;font-family:var(--serif);font-size:1.4rem;line-height:1.25;color:var(--soft)}
 
-/* Rose View Styles */
-#hint {
-  margin-top: 14px;
-  color: var(--soft);
-  font-style: italic;
-  font-size: 18px;
-  min-height: 52px;
+.field{display:block;margin-top:38px;font-size:.95rem;color:var(--soft)}
+input{
+  display:block;width:100%;margin-top:4px;padding:8px 0 10px;
+  background:transparent;color:var(--blush);
+  border:0;border-bottom:2px solid #ffffff3a;border-radius:0;
+  font:italic 400 2.6rem/1.1 var(--serif);
+  transition:border-color .25s;
 }
+input::placeholder{color:#ffffff38}
+input:focus{outline:none;border-bottom-color:var(--rose)}
+input:focus-visible{outline:none}
 
-.stage {
-  position: relative;
-  height: 350px;
-  display: grid;
-  place-items: center;
-  margin-top: 6px;
+.btn{
+  width:100%;margin-top:26px;padding:16px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--rose);color:#2a0612;font:800 1.1rem var(--display);letter-spacing:-.01em;
+  transition:transform .2s,filter .2s;
 }
-.rose-btn {
-  position: relative;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  width: 300px;
-  max-width: 94%;
-  height: 350px;
-  -webkit-tap-highlight-color: transparent;
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+
+/* the link comes back as a little gift tag */
+.out{
+  display:none;position:relative;margin-top:40px;padding:42px 22px 22px;
+  background:var(--paper);color:var(--ink);
+  border-radius:12px 12px 22px 22px;transform:rotate(-1deg);
+  box-shadow:0 26px 40px -18px #000c;
 }
-.rose-btn:focus-visible { outline: 2px solid var(--blush); outline-offset: 8px; border-radius: 24px; }
-.rose-btn canvas { width: 100%; height: 100%; display: block; }
-.stage::before { content: ""; position: absolute; left: 50%; top: 27%; width: 280px; height: 280px; margin: -140px 0 0 -140px; background: radial-gradient(circle, #e5395f55, transparent 68%); opacity: .3; transition: opacity 3.5s ease; pointer-events: none; }
-.stage.open::before { opacity: 1; }
-
-.rose-btn::after {
-  content: "";
-  position: absolute;
-  left: 50%; top: 27%;
-  width: 70px; height: 70px;
-  margin: -35px 0 0 -35px;
-  border: 1.5px solid var(--rose);
-  border-radius: 50%;
-  animation: ring 2.2s ease-out infinite;
-  pointer-events: none;
+.out::before{
+  content:"";position:absolute;top:14px;left:50%;width:16px;height:16px;margin-left:-8px;
+  border-radius:50%;background:var(--night);box-shadow:inset 0 2px 3px #000a;
 }
-.stage:not(.grown) .rose-btn::after, .stage.open .rose-btn::after { display: none; }
-.stage:not(.grown) .rose-btn { cursor: default; }
-
-.petal {
-  position: absolute;
-  left: 50%; top: 32%;
-  width: 11px; height: 15px;
-  background: var(--rose);
-  border-radius: 80% 0 80% 0;
-  opacity: 0;
-  pointer-events: none;
-  animation: fall var(--d) ease-in forwards;
+.out.show{display:block;animation:tag .6s cubic-bezier(.2,.9,.3,1.3) both}
+.out code{
+  display:block;margin-bottom:16px;padding:12px 14px;border-radius:8px;
+  background:#3b15220f;word-break:break-all;
+  font:500 .95rem/1.4 var(--display);color:var(--ink);
 }
-
-/* Letter */
-.letter {
-  display: none;
-  margin-top: 26px;
-  padding: 34px 28px 30px;
-  background: var(--blush);
-  color: var(--ink);
-  text-align: left;
-  border-radius: 3px;
-  box-shadow: 0 30px 60px #0008;
-  transform: rotate(-.6deg);
-  font-family: Caveat, "Segoe Script", cursive;
-  font-weight: 500;
-  cursor: pointer;
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.actions a,.actions button{
+  flex:1 1 auto;text-align:center;text-decoration:none;cursor:pointer;
+  background:none;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;
+  padding:11px 16px;font:700 .95rem var(--display);
+  transition:background .2s,color .2s;
 }
-.letter.show { display: block; animation: unfold 1s cubic-bezier(.2,.8,.2,1) both; }
-.letter h2 { font-size: 40px; font-weight: 600; line-height: 1.05; color: #a3173f; margin-bottom: 18px; }
-.letter p { font-size: 24px; line-height: 1.5; margin-bottom: 14px; }
-.letter .sign { text-align: right; font-size: 32px; font-weight: 600; color: #a3173f; margin: 22px 0 0; }
+.actions a:hover,.actions button:hover{background:var(--ink);color:var(--paper)}
+.actions a:focus-visible,.actions button:focus-visible{outline-color:var(--ink)}
 
-.again {
-  display: none;
-  margin: 30px auto 0;
-  background: none;
-  color: var(--soft);
-  border: 1px solid #c9a3b055;
-  border-radius: 40px;
-  padding: 12px 22px;
-  font: italic 16px Fraunces, Georgia, serif;
-  cursor: pointer;
-  transition: background .2s, color .2s;
+/* ---------- Rose ---------- */
+#rose-view{text-align:center}
+#rose-view h1{font-weight:400}
+#rose-view .for{display:block;font:italic 400 1.9rem/1 var(--serif);color:var(--soft)}
+#who{
+  display:block;margin-top:4px;
+  font:800 clamp(2.9rem,15vw,5.6rem)/.95 var(--display);letter-spacing:-.045em;
+  color:var(--blush);overflow-wrap:anywhere;
 }
-.again.show { display: block; }
-.again:hover { background: #ffffff10; color: var(--blush); }
-.again:focus-visible { outline: 2px solid var(--blush); outline-offset: 4px; }
+#hint{margin-top:14px;min-height:46px;font:italic 400 1.35rem/1.3 var(--serif);color:var(--soft)}
 
-.caret { display: inline-block; width: 2px; height: .9em; margin-left: 2px; background: #a3173f; vertical-align: -.1em; animation: blink 1s steps(2) infinite; }
-
-.sound {
-  position: fixed; z-index: 5;
-  top: calc(12px + env(safe-area-inset-top, 0px)); right: 14px;
-  background: #ffffff12; color: var(--soft);
-  border: 1px solid #c9a3b055; border-radius: 40px;
-  padding: 8px 14px; font: italic 14px Fraunces, Georgia, serif;
-  cursor: pointer;
-  display: none;
+.stage{position:relative;height:380px;display:grid;place-items:center;margin-top:4px}
+.stage::before{
+  content:"";position:absolute;left:50%;top:27%;width:320px;height:320px;margin:-160px 0 0 -160px;
+  background:radial-gradient(circle,#ff4d7966,transparent 68%);
+  opacity:.25;transition:opacity 3.5s ease;pointer-events:none;
 }
-.sound:focus-visible { outline: 2px solid var(--blush); outline-offset: 3px; }
+.stage.open::before{opacity:1}
+/* soft shadow under the stem */
+.stage::after{
+  content:"";position:absolute;left:50%;bottom:6px;width:190px;height:18px;margin-left:-95px;
+  background:radial-gradient(ellipse,#000b,transparent 70%);pointer-events:none;
+}
+.rose-btn{
+  position:relative;z-index:1;background:none;border:0;cursor:pointer;
+  width:320px;max-width:96%;height:380px;-webkit-tap-highlight-color:transparent;
+}
+.rose-btn:focus-visible{outline-offset:8px;border-radius:28px}
+.rose-btn canvas{width:100%;height:100%;display:block}
+.rose-btn::after{
+  content:"";position:absolute;left:50%;top:27%;width:70px;height:70px;margin:-35px 0 0 -35px;
+  border:1.5px solid var(--rose);border-radius:50%;
+  animation:ring 2.2s ease-out infinite;pointer-events:none;
+}
+.stage:not(.grown) .rose-btn::after,.stage.open .rose-btn::after{display:none}
+.stage:not(.grown) .rose-btn{cursor:default}
 
-@keyframes blink { 50% { opacity: 0; } }
-@keyframes ring { 0% { transform: scale(.7); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
-@keyframes unfold { from { opacity: 0; transform: translateY(40px) rotate(-3deg) scale(.96); } to { opacity: 1; transform: rotate(-.6deg); } }
-@keyframes fall {
-  0% { opacity: 0; transform: translate(0,0) rotate(0); }
-  12% { opacity: 1; }
-  100% { opacity: 0; transform: translate(var(--x), 330px) rotate(var(--r)); }
+.petal{
+  position:absolute;z-index:2;left:50%;top:32%;width:11px;height:15px;
+  background:var(--rose);border-radius:80% 0 80% 0;opacity:0;pointer-events:none;
+  animation:fall var(--d) ease-in forwards;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+/* ---------- Letter ---------- */
+.letter{
+  display:none;position:relative;margin-top:44px;padding:50px 30px 32px;
+  background:linear-gradient(170deg,#fff8f1,var(--paper) 60%,#f7e2d6);
+  color:var(--ink);text-align:left;border-radius:3px;
+  box-shadow:0 34px 60px -20px #000d;
+  transform:rotate(-.6deg);cursor:pointer;
+  font-family:var(--hand);font-weight:500;
+}
+.letter::before{ /* wax seal */
+  content:"♡";position:absolute;top:-24px;left:50%;margin-left:-24px;
+  display:grid;place-items:center;width:48px;height:48px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#d8305a,var(--deep) 75%);
+  color:var(--paper);font:400 1.5rem/1 var(--display);
+  box-shadow:inset 0 0 0 2px #ffffff30,0 8px 14px -6px #0009;
+}
+.letter::after{ /* margin line */
+  content:"";position:absolute;top:0;bottom:0;left:16px;width:1.5px;background:#a3173f2e;
+}
+.letter.show{display:block;animation:unfold 1s cubic-bezier(.2,.8,.2,1) both}
+.letter h2{font-size:2.8rem;font-weight:600;line-height:1.05;color:var(--deep);margin-bottom:18px}
+.letter p{font-size:1.6rem;line-height:1.45;margin-bottom:14px}
+.letter .sign{text-align:right;font-size:2.1rem;font-weight:600;color:var(--deep);margin:22px 0 0}
+.caret{display:inline-block;width:2px;height:.9em;margin-left:2px;background:var(--deep);vertical-align:-.1em;animation:blink 1s steps(2) infinite}
+
+.again{
+  display:none;margin:34px auto 0;padding:12px 24px;cursor:pointer;
+  background:none;color:var(--soft);border:1.5px solid #d8aab766;border-radius:999px;
+  font:700 .95rem var(--display);transition:background .2s,color .2s;
+}
+.again.show{display:block}
+.again:hover{background:#ffffff14;color:var(--blush)}
+
+.sound{
+  position:fixed;z-index:30;display:none;cursor:pointer;
+  top:calc(12px + env(safe-area-inset-top,0px));right:14px;
+  padding:9px 16px;border-radius:999px;
+  background:#14050c99;color:var(--soft);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1.5px solid #d8aab755;font:700 .85rem var(--display);
+}
+
+@keyframes blink{50%{opacity:0}}
+@keyframes ring{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.9);opacity:0}}
+@keyframes tag{from{opacity:0;transform:translateY(30px) rotate(-5deg)}}
+@keyframes unfold{from{opacity:0;transform:translateY(40px) rotate(-3deg) scale(.96)}to{opacity:1;transform:rotate(-.6deg)}}
+@keyframes fall{
+  0%{opacity:0;transform:translate(0,0) rotate(0)}
+  12%{opacity:1}
+  100%{opacity:0;transform:translate(var(--x),350px) rotate(var(--r))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
 </style>
 </head>
@@ -187,18 +207,19 @@ input:focus-visible, button:focus-visible { outline: 2px solid var(--blush); out
 
 <!-- Generator View -->
 <main id="generator-view">
-  <div class="emoji">🌹</div>
-  <h1>Make a rose for someone</h1>
+  <div class="seal" aria-hidden="true">🌹</div>
+  <h1 class="gen-title">Make a rose <em>for someone</em></h1>
   <p class="sub">Type a name, get a link to send.</p>
 
-  <label for="name">Their name</label>
-  <input id="name" maxlength="40" placeholder="Their name" autocomplete="off">
+  <label class="field" for="name">Their name
+    <input id="name" maxlength="40" placeholder="Their name" autocomplete="off">
+  </label>
 
   <button class="btn" id="gen">Generate link</button>
 
   <div class="out" id="out" aria-live="polite">
     <code id="link"></code>
-    <div class="row">
+    <div class="actions">
       <button id="copy">Copy</button>
       <a id="open" target="_blank" rel="noopener">Preview</a>
       <a id="wa" target="_blank" rel="noopener">WhatsApp</a>
@@ -208,7 +229,7 @@ input:focus-visible, button:focus-visible { outline: 2px solid var(--blush); out
 
 <!-- Rose View -->
 <main id="rose-view" style="display: none;">
-  <h1>For <span id="who">Someone Special</span>.</h1>
+  <h1><span class="for">For</span> <span id="who">Someone Special</span></h1>
   <p id="hint" aria-live="polite">Watch it grow…</p>
 
   <div class="stage growing" id="stage">
